@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hospitals",
+  "info": {
+    "singularName": "hospital",
+    "pluralName": "hospitals",
+    "displayName": "Hospital",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Address": {
+      "type": "text",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Website": {
+      "type": "text",
+      "required": true
+    },
+    "Phone": {
+      "type": "biginteger",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "hospitals"
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Premium": {
+      "type": "boolean",
+      "required": true
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "Hospital"
+    }
+  }
+}
